@@ -43,14 +43,14 @@ const App = () => {
 
       {installed ? (
         <SdkContainer
-          title="Installed SDK"
+          title="Installed SDK's"
           totalSdk={instData.length}
           latestUpdate={getLatestUpdate(instData)}
           data={groupDataFunction(instData)}
         />
       ) : (
         <SdkContainer
-          title="UnInstalled SDK"
+          title="Uninstalled SDK's"
           totalSdk={unInstData.length}
           latestUpdate={getLatestUpdate(unInstData)}
           data={groupDataFunction(unInstData)}
