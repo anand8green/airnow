@@ -4,12 +4,11 @@ import installedData from './JSON/installed.json'
 import unInstallData from './JSON/uninstalled.json'
 
 const App = () => {
-  const [install, setInstall] = useState(true)
+  const [installed, setInstalled] = useState(true)
   const [instData] = useState(installedData?.data?.installedSdks)
   const [unInstData] = useState(unInstallData?.data?.uninstalledSdks)
 
   // Creating group based on categories
-
   const groupDataFunction = (data) => {
     return data.reduce((acc, cu) => {
       const { categories } = cu
@@ -29,10 +28,20 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={() => setInstall(true)}>Installed</button>
-      <button onClick={() => setInstall(false)}>UnInstalled</button>
+      <button
+        className={`installedBtn ${installed && 'activeBtn'}`}
+        onClick={() => setInstalled(true)}
+      >
+        Installed
+      </button>
+      <button
+        className={`unInstalledBtn ${!installed && 'activeBtn'}`}
+        onClick={() => setInstalled(false)}
+      >
+        Uninstalled
+      </button>
 
-      {install ? (
+      {installed ? (
         <SdkContainer
           title="Installed SDK"
           totalSdk={instData.length}
