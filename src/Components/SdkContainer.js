@@ -1,6 +1,8 @@
 import React from 'react'
 
-const SdkContainer = ({ title, totalSdk, latestUpdate }) => {
+const SdkContainer = ({ title, totalSdk, latestUpdate, data }) => {
+  console.log(data)
+
   return (
     <div>
       <h1>{title}</h1>
